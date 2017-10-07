@@ -1,5 +1,6 @@
 package com.lukasowy.service;
 
+import com.lukasowy.dao.StudentDao;
 import com.lukasowy.dao.StudentDaoImpl;
 import com.lukasowy.entity.Student;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,26 +13,26 @@ import java.util.Collection;
 public class StudentService {
 
     @Autowired
-    @Qualifier("studentDaoImpl")
-    private StudentDaoImpl studentDaoImpl;
+    @Qualifier("mysql")
+    private StudentDao studentDao;
 
     public Collection<Student> getAllStudent(){
-        return studentDaoImpl.getAllStudent();
+        return studentDao.getAllStudent();
     }
 
     public Student getStudentById(int id){
-        return studentDaoImpl.getStudentById(id);
+        return studentDao.getStudentById(id);
     }
 
-    public Student removeStudentById(int id) {
-        return studentDaoImpl.removeStudentById(id);
+    public void removeStudentById(int id) {
+         studentDao.removeStudentById(id);
     }
 
     public void updateStudent(Student student){
-       this.studentDaoImpl.updateStudent(student);
+       this.studentDao.updateStudent(student);
     }
 
     public void insertStudent(Student student) {
-        this.studentDaoImpl.insertStudent(student);
+        this.studentDao.insertStudent(student);
     }
 }

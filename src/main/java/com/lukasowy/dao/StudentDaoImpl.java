@@ -16,7 +16,7 @@ public class StudentDaoImpl implements StudentDao {
     static{
         students = new HashMap<Integer, Student>(){
             {
-                put(1,new Student(1, "Maniek", "Computer Science"));
+                put(1,new Student(1, "Macipek", "Computer Science"));
                 put(2,new Student(2, "Czesiek", "Computer Science"));
                 put(3,new Student(3, "Walerian", "Computer Science"));
                 put(4,new Student(4, "Eutanazjusz", "Computer Science"));
@@ -37,8 +37,8 @@ public class StudentDaoImpl implements StudentDao {
     }
 
     @Override
-    public Student removeStudentById(int id) {
-        return this.students.remove(id);
+    public void removeStudentById(int id) {
+         this.students.remove(id);
     }
 
     @Override
